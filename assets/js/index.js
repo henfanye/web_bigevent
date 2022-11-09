@@ -1,4 +1,4 @@
-(function () {
+$(function () {
     getUserInfo()
 
     let layer = layui.layer
@@ -12,7 +12,7 @@
     })
 
 
-})()
+})
 
 function getUserInfo() {
     $.ajax({
@@ -23,20 +23,12 @@ function getUserInfo() {
                 return layui.layer.msg("提取用户信息错误")
             }
             renderAvatar(res.data)
-        },
-        // complete: function (res) {
-        //     console.log(res)
-        //     if (res.responseJSON.status === 1 && res.responseJSON.message === "身份认证失败！") {
-        //         localStorage.removeItem('token')
-        //         location.href = './login.html'
-        //     }
-        // }
+        }
     })
 }
-
 function renderAvatar(user) {
-    let name = user.nickname || user.username
-    $("#welcome").html(`欢迎&nbsp;&nbsp;${name}`)
+    let name = user.username || user.nickname
+    $("#welcome").html("欢迎&nbsp;&nbsp;" + name)
     if (user.user_pic !== null) {
         $(".layui-nav-img").attr("src", user.user_pic).show()
         $(".text-avatar").hide()
