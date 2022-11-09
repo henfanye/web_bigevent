@@ -50,6 +50,7 @@
                 }
                 layer.msg('更新头像成功')
                 window.parent.getUserInfo()
+                console.log(window.parent.getUserInfo())
             }
         })
     })

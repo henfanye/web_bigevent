@@ -1,6 +1,6 @@
 (function () {
     let form = layui.form
-    var layer = layui.layer
+    let layer = layui.layer
 
     form.verify({
         nickname: function (value) {
@@ -45,5 +45,4 @@
             }
         })
     })
-
 })()
